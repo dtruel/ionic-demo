@@ -1,0 +1,22 @@
+
+
+<ion-view view-title="Teams List">
+    <ion-header-bar class="bar-positive">
+      <h1 class="title">Search</h1>
+      <div class="buttons">
+          <button class="button button-icon ion-android-search"
+                  ng-click="showFilterBar()"></button>
+      </div>
+    </ion-header-bar>
+
+    <ion-content>
+        <ion-list style="margin-top:40px;">
+            <ion-item class="item-thumbnail-left" ng-repeat="team in data.teams | filter: {searchText:searchBox}" href="#/team/{{team.id}}">
+                <img src="{{team.image}}">
+                <h2>{{team.name}}</h2>
+                <p>Sport{{team.sport.search(",") > -1 ? "s":""}}: {{team.sport}}</p>
+                <p>Age: {{team.age}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
